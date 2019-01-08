@@ -4,6 +4,8 @@
  * Started: 1/7/2019
  *
  * Music streaming app aimed at increasing revenue for artists on streaming platforms
+ *
+ * This file handles the main activity the user stays on for most of the usage
  */
 
 package com.example.brend.haven2;
