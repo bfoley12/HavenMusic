@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/menuOne"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/optionOne"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Option One" />
+        <item
+            android:id="@+id/optionTwo"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Option Two" />
+        <item
+            android:id="@+id/optionThree"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Option Three" />
+        <item
+            android:id="@+id/optionFour"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Option Four" />
+    </group>
+
+    <item
+        android:id="@+id/menuTwo"
+        android:title="2nd menu">
+        <menu>
+            <item
+                android:id="@+id/optionFive"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Option Five" />
+            <item
+                android:id="@+id/optionSix"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Option Six" />
+        </menu>
+    </item>
+
+</menu>
