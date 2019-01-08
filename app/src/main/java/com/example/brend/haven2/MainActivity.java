@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 /**
+ *  I changed this
  * The main activity of our program. First screen seen by user
  * @extends: default extension of activities
  * @implements: an interface for using a sliding navigation drawer
