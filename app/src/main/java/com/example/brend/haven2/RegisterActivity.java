@@ -54,7 +54,6 @@ public class RegisterActivity extends AppCompatActivity{
         }
         else{
             // TODO: Create new user entry in database
-            Authenticator.addAccount();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

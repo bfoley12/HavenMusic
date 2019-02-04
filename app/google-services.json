@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "857089748051",
+    "firebase_url": "https://havenmusic-c69a2.firebaseio.com",
+    "project_id": "havenmusic-c69a2",
+    "storage_bucket": "havenmusic-c69a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857089748051:android:0b226844bf61847d",
+        "android_client_info": {
+          "package_name": "com.example.brend.haven2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857089748051-esv3mis6pdf4boj63j30av3jju197t0j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSM61Ofl9ZmlGOfHZBZGytzUpZ1V-JsEE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
