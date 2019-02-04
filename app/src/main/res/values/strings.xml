@@ -6,10 +6,17 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="title_activity_login">Haven</string>
+    <!-- Strings related to bottom navigation -->
+    <string name="title_home">Home</string>
+    <string name="title_trending">Trending</string>
+    <string name="title_library">Library</string>
     <!-- Strings related to login -->
     <string name="title_activity_login_screen">LoginScreen</string>
+    <!-- Strings related to registration -->
+    <string name="register_username_hint">Enter Username</string>
+    <string name="register_set_password_hint">Set Password</string>
+    <string name="register_reenter_password_hint">Re-Enter Password</string>
+    <string name="register_header">Register Your Account</string>
+    <string name="register_button">Confirm</string>
 </resources>

@@ -9,6 +9,9 @@
  */
 package com.example.brend.haven2;
 
+import android.accounts.AccountAuthenticatorResponse;
+import android.accounts.AccountManager;
+import android.accounts.NetworkErrorException;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +19,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         else{
             // TODO: Create new user entry in database
+            Authenticator.addAccount();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
