@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "857089748051-8to84cqlho2v3sltkec3tv11qdninpne.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.brend.haven2",
+            "certificate_hash": "19059a2d325bac29b7e01bc0b75710e64f8fe405"
+          }
+        },
+        {
           "client_id": "857089748051-esv3mis6pdf4boj63j30av3jju197t0j.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857089748051-esv3mis6pdf4boj63j30av3jju197t0j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

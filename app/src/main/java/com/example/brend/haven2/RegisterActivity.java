@@ -53,8 +53,12 @@ public class RegisterActivity extends AppCompatActivity{
             pw2.setText("");
         }
         else{
-            // TODO: Create new user entry in database
-            Intent intent = new Intent(this, MainActivity.class);
+            // TODO: Need to make username into screen name and link it to an Email for authorization
+            // For now just enter a valid email for username
+
+            Intent intent = new Intent(this, AuthorizationFlow.class);
+            intent.putExtra("USERNAME", username);
+            intent.putExtra("PASSWORD", password1);
             startActivity(intent);
         }
     }
