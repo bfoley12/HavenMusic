@@ -16,6 +16,7 @@ public class AuthorizationFlow extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("DEBUG", "AuthorizationFlow onCreate");
         FirebaseApp.initializeApp(this);
 
         super.onCreate(savedInstanceState);
@@ -25,7 +26,7 @@ public class AuthorizationFlow extends AppCompatActivity {
 
     @Override
     public void onStart() {
-        FirebaseApp.initializeApp(this);
+        Log.d("DEBUG", "AuthorizationFlow onStart");
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -34,11 +35,13 @@ public class AuthorizationFlow extends AppCompatActivity {
 
     @Override
     protected void onNewIntent(Intent intent) {
+        Log.d("DEBUG", "AuthorizationFlow onNewIntent");
+        super.onNewIntent(intent);
+
         Bundle extras = intent.getExtras();
         Task createResult = mAuth.createUserWithEmailAndPassword(
                 extras.getString("USERNAME"), extras.getString("PASSWORD"));
         FirebaseUser newUser = mAuth.getCurrentUser();
-        Log.i("HELLO", "" + createResult.getResult());
         updateUI(newUser);
     }
     /**
@@ -46,12 +49,18 @@ public class AuthorizationFlow extends AppCompatActivity {
      * @param cU - the currentUser sent from onStart() method
      */
     public void updateUI(FirebaseUser cU){
+        Log.d("DEBUG", "AuthorizationFlow updateUI");
+
         if(cU != null){
+            Log.d("DEBUG", "AuthorizationFlow Current User Populated");
+
             //TODO: Link to the user's account
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
         else{
+            Log.d("DEBUG", "AuthorizationFlow Current User Null");
+
             Intent loginFlow = new Intent(this, LoginScreen.class);
             startActivity(loginFlow);
         }

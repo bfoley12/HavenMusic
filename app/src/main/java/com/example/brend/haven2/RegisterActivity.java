@@ -15,6 +15,7 @@ import android.accounts.NetworkErrorException;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -23,6 +24,8 @@ public class RegisterActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("DEBUG", "RegisterActivity onCreate");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
     }
@@ -55,8 +58,10 @@ public class RegisterActivity extends AppCompatActivity{
         else{
             // TODO: Need to make username into screen name and link it to an Email for authorization
             // For now just enter a valid email for username
+            Log.d("DEBUG", "RegisterActivity Send to AuthorizationFlow");
 
             Intent intent = new Intent(this, AuthorizationFlow.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             intent.putExtra("USERNAME", username);
             intent.putExtra("PASSWORD", password1);
             startActivity(intent);

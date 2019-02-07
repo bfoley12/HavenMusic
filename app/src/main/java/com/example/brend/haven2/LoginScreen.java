@@ -12,6 +12,7 @@ package com.example.brend.haven2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,6 +21,8 @@ public class LoginScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("DEBUG", "LoginScreen onCreate");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
     }
