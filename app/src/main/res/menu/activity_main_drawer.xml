@@ -9,33 +9,33 @@
         <item
             android:id="@+id/optionOne"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Option One" />
+            android:title="@string/option_one" />
         <item
             android:id="@+id/optionTwo"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Option Two" />
+            android:title="@string/option_two" />
         <item
             android:id="@+id/optionThree"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Option Three" />
+            android:title="@string/option_three" />
         <item
             android:id="@+id/optionFour"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Option Four" />
+            android:title="@string/option_four" />
     </group>
 
     <item
-        android:id="@+id/menuTwo"
-        android:title="2nd menu">
+        android:id="@+id/accountMenu"
+        android:title="@string/account_menu">
         <menu>
             <item
-                android:id="@+id/optionFive"
+                android:id="@+id/editAccount"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Option Five" />
+                android:title="@string/edit_account" />
             <item
-                android:id="@+id/optionSix"
+                android:id="@+id/logOut"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Option Six" />
+                android:title="@string/log_out" />
         </menu>
     </item>
 

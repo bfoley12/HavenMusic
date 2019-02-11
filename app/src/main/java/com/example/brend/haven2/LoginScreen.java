@@ -5,7 +5,7 @@
  *
  * Music streaming app aimed at increasing revenue for artists on streaming platforms
  *
- * This file handles logging in and ensuring safe login data before checking SQL Database
+ * This file handles logging in and ensuring safe login data before checking Firebase
  */
 package com.example.brend.haven2;
 
@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 
 public class LoginScreen extends AppCompatActivity {
 
@@ -34,14 +35,20 @@ public class LoginScreen extends AppCompatActivity {
         String username = un.getText().toString();
         EditText pw = findViewById(R.id.loginPassword);
         String password = pw.getText().toString();
-        if(username.length() > 64 || password.length() > 64){
+        if(username.length() > 64 || username.length() == 0 ||
+                password.length() > 64 || password.length() == 0){
             un.setText("");
             pw.setText("");
             Toast.makeText(this, "Ensure username and password are less than 64" +
                     " characters", Toast.LENGTH_LONG).show();
         }
-        // TODO: Create SQL DB and check for the now found username and password pair, if valid
-        // TODO: (cont'd) then progress to MainActivity, otherwise Toast incorrect and retry
+
+        Intent intent = new Intent(this, AuthorizationFlow.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.putExtra("METHOD", "logIn");
+        intent.putExtra("USERNAME", username);
+        intent.putExtra("PASSWORD", password);
+        startActivity(intent);
     }
 
     public void registerButtonClicked(View view){

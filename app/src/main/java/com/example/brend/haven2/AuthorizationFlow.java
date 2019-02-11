@@ -13,36 +13,54 @@ import com.google.firebase.auth.FirebaseUser;
 public class AuthorizationFlow extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-
+    private static boolean LOGIN_FLAG = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         Log.d("DEBUG", "AuthorizationFlow onCreate");
         FirebaseApp.initializeApp(this);
 
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorization_flow);
         mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
     public void onStart() {
-        Log.d("DEBUG", "AuthorizationFlow onStart");
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        Log.d("DEBUG", "AuthorizationFlow onStart");
+            // Check if user is signed in (non-null) and update UI accordingly.
+        if(!LOGIN_FLAG) {
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            updateUI(currentUser);
+        }
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
-        Log.d("DEBUG", "AuthorizationFlow onNewIntent");
         super.onNewIntent(intent);
+        Log.d("DEBUG", "AuthorizationFlow onNewIntent");
+
 
         Bundle extras = intent.getExtras();
-        Task createResult = mAuth.createUserWithEmailAndPassword(
-                extras.getString("USERNAME"), extras.getString("PASSWORD"));
-        FirebaseUser newUser = mAuth.getCurrentUser();
-        updateUI(newUser);
+        Log.d("DEBUG", extras.getString("METHOD"));
+
+        switch(extras.getString("METHOD")) {
+            case "updateUI":
+                Task createResult = mAuth.createUserWithEmailAndPassword(
+                        extras.getString("USERNAME"), extras.getString("PASSWORD"));
+                FirebaseUser newUser = mAuth.getCurrentUser();
+                updateUI(newUser);
+                break;
+            case "logIn":
+                Log.d("DEBUG", "AuthorizationFlow onNewIntent case logIn");
+                LOGIN_FLAG = true;
+                logIn(extras);
+                break;
+            case "logOut":
+                LOGIN_FLAG = false;
+                logOut();
+                break;
+        }
     }
     /**
      * Controls whether to launch into user account or send them to login/register
@@ -54,7 +72,6 @@ public class AuthorizationFlow extends AppCompatActivity {
         if(cU != null){
             Log.d("DEBUG", "AuthorizationFlow Current User Populated");
 
-            //TODO: Link to the user's account
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
@@ -64,5 +81,21 @@ public class AuthorizationFlow extends AppCompatActivity {
             Intent loginFlow = new Intent(this, LoginScreen.class);
             startActivity(loginFlow);
         }
+    }
+
+    public void logIn(Bundle extras){
+        Log.d("DEBUG", "AuthorizationFlow logIn");
+
+        mAuth.signInWithEmailAndPassword(
+                extras.getString("USERNAME"),extras.getString("PASSWORD"));
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
+    }
+    public void logOut(){
+        Log.d("DEBUG", "AuthorizationFlow logOut");
+        mAuth.signOut();
+        Intent intent = new Intent(this, LoginScreen.class);
+        startActivity(intent);
     }
 }

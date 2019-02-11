@@ -10,6 +10,7 @@
 
 package com.example.brend.haven2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -68,6 +69,8 @@ public class MainActivity extends AppCompatActivity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("DEBUG", "MainActivity onCreate");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -140,6 +143,7 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        Intent intent;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -151,10 +155,14 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.optionFour) {
 
-        } else if (id == R.id.optionFive) {
-
-        } else if (id == R.id.optionSix) {
-
+        } else if (id == R.id.editAccount) {
+            intent = new Intent(this, EditAccount.class);
+            startActivity(intent);
+        } else if (id == R.id.logOut) {
+            intent = new Intent(this, AuthorizationFlow.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            intent.putExtra("METHOD", "logOut");
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

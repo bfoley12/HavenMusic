@@ -62,6 +62,7 @@ public class RegisterActivity extends AppCompatActivity{
 
             Intent intent = new Intent(this, AuthorizationFlow.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            intent.putExtra("METHOD", "updateUI");
             intent.putExtra("USERNAME", username);
             intent.putExtra("PASSWORD", password1);
             startActivity(intent);
