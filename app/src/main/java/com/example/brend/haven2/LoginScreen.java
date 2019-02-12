@@ -40,15 +40,16 @@ public class LoginScreen extends AppCompatActivity {
             un.setText("");
             pw.setText("");
             Toast.makeText(this, "Ensure username and password are less than 64" +
-                    " characters", Toast.LENGTH_LONG).show();
+                    " and longer than 6 characters", Toast.LENGTH_LONG).show();
         }
-
-        Intent intent = new Intent(this, AuthorizationFlow.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        intent.putExtra("METHOD", "logIn");
-        intent.putExtra("USERNAME", username);
-        intent.putExtra("PASSWORD", password);
-        startActivity(intent);
+        else if(username.length() > 6) {
+            Intent intent = new Intent(this, AuthorizationFlow.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            intent.putExtra("METHOD", "logIn");
+            intent.putExtra("USERNAME", username);
+            intent.putExtra("PASSWORD", password);
+            startActivity(intent);
+        }
     }
 
     public void registerButtonClicked(View view){
