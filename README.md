@@ -24,6 +24,10 @@ Alex Reyes -
 (845)-702-5744 - 
 alexreyes2013@gmail.com 
 
+Alex Badia -
+(845)-475-1080 -
+badia.alex.h@gmail.com
+
 Name - 
 Phone Number -
 Email
